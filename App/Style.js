@@ -26,13 +26,14 @@ const Styles = StyleSheet.create({
     },
     image: {
         flex: 1,
+        
     },
     navbar: {
         width: "100%",
-        flexDirection:"row",
-        justifyContent:"space-between",
-        paddingLeft:10,
-        paddingRight:10,
+        flexDirection: "row",
+        justifyContent: "space-between",
+        paddingLeft: 10,
+        paddingRight: 10,
         height: 55,
         backgroundColor: "#fff",
         shadowColor: "#000000",
@@ -43,29 +44,42 @@ const Styles = StyleSheet.create({
         shadowOpacity: 0.21,
         shadowRadius: 7.68,
         elevation: 10,
-        position:"absolute",
-        top:0,
+        position: "absolute",
+        top: 0,
+    },
+    videoCallDotContainer: {
+        width: "20%",
+        flexDirection: "row",
+        alignItems: "center"
     },
     chatContainer: {
         flex: 1,
         backgroundColor: "#fff",
 
     },
-    inputContainer:{
-        width:"100%",
-        position:"absolute",
-        bottom:10,
-        flexDirection:"row",
-        justifyContent:"space-evenly",
-        alignItems:"center"
+    inputContainer: {
+        width: "100%",
+        position: "absolute",
+        bottom: 10,
+        flexDirection: "row",
+        justifyContent: "space-evenly",
+        alignItems: "center"
     },
-    mikeBox:{
-        width:50,
-        height:50,
-        borderRadius:40,
-        backgroundColor:"#1fd655",
-        justifyContent:"center",
-        alignItems:"center",
+    mikeBox: {
+        width: 50,
+        height: 50,
+        borderRadius: 40,
+        backgroundColor: "#1fd655",
+        justifyContent: "center",
+        alignItems: "center",
+    },
+    emojismileContainer: {
+        width: "75%",
+        flexDirection: "row",
+        alignItems: "center",
+        backgroundColor: "#fff",
+        borderRadius: 25,
+        justifyContent: "center"
     }
 
 });

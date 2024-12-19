@@ -59,6 +59,9 @@ react {
  */
 def enableProguardInReleaseBuilds = false
 
+project.ext.react = [
+    enableHermes: false
+]
 /**
  * The preferred build flavor of JavaScriptCore (JSC)
  *
