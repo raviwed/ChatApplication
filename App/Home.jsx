@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, FlatList, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, FlatList, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import database from '@react-native-firebase/database';
 import auth from '@react-native-firebase/auth';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import Styles from './Style';
 
 const UserListScreen = ({ navigation }) => {
   const [users, setUsers] = useState([]);
@@ -37,7 +38,8 @@ const UserListScreen = ({ navigation }) => {
         data={users}
         keyExtractor={item => item.id}
         renderItem={({ item }) => (
-          <TouchableOpacity onPress={() => navigation.navigate('chat', { userId: item.id })}>
+          <TouchableOpacity activeOpacity={0.7} style={Styles.chatApplication} onPress={() => navigation.navigate('chat', { userId: item.id, username: item.username })}>
+            {item?.imageUri ? <Image source={{ uri: item?.imageUri }} style={Styles.userImage} /> : <Image source={require('./Assets/Background.jpg')} style={Styles.userImage} />}
             <Text style={styles.userItem}>{item.username}</Text>
           </TouchableOpacity>
         )}

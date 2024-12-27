@@ -10,11 +10,10 @@ const Styles = StyleSheet.create({
     emailInfo: {
         borderColor: "black",
         borderWidth: 1,
-        marginTop: 10,
-        marginBottom: 10,
         padding: 10,
         borderRadius: 10,
-        width: "90%"
+        width: "75%",
+        backgroundColor: "#fff",
     },
     registerBtn: {
         backgroundColor: "red",
@@ -22,11 +21,10 @@ const Styles = StyleSheet.create({
         marginBottom: 10,
         padding: 15,
         borderRadius: 10,
-        width: "90%"
+        width: "80%"
     },
     image: {
         flex: 1,
-        
     },
     navbar: {
         width: "100%",
@@ -80,6 +78,34 @@ const Styles = StyleSheet.create({
         backgroundColor: "#fff",
         borderRadius: 25,
         justifyContent: "center"
+    },
+    iconfit: {
+        flexDirection: "row",
+        alignItems: "center",
+        marginTop: 10,
+        marginBottom: 10,
+        backgroundColor: "#83f28f",
+        paddingLeft: 10,
+        borderRadius: 20,
+    },
+    rightMar: {
+        marginRight: 5
+    },
+    chatApplication: {
+        flexDirection: "row",
+        marginTop: 10,
+        marginBottom: 10,
+        borderBottomWidth: 1,
+        borderBottomColor: "#ccc",
+        paddingBottom: 5,
+        paddingTop: 5,
+        alignItems: "center",
+    },
+    userImage: {
+        width: 30,
+        height: 30,
+        borderRadius: 15,
+        marginRight: 15
     }
 
 });

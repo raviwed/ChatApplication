@@ -3,21 +3,25 @@ import React, { useState } from "react";
 import auth from '@react-native-firebase/auth';
 import database from '@react-native-firebase/database';
 import Styles from "./Style";
+import { SvgXml } from "react-native-svg";
+import ICON from "./Assets/Icon";
 
 const Registration = ({ navigation }) => {
-  const [registration, setRegistration] = useState({ email: "", password: "", username: "" });
+  const [registration, setRegistration] = useState({ email: "", password: "", username: "", imageUri: "" });
 
   const handleRegister = () => {
     if (registration.email && registration.password && registration.username) {
       auth()
         .createUserWithEmailAndPassword(registration.email, registration.password)
-        .then((res) => {console.log(res, 'User account created & signed in!');
+        .then((res) => {
+
           // Add user to database
           database()
             .ref(`/users/${res.user.uid}`)
             .set({
               userId: res.user.uid,
               username: registration.username,
+              imageUri: registration.imageUri,
               email: registration.email,
               status: 'online',
             });
@@ -42,9 +46,22 @@ const Registration = ({ navigation }) => {
 
   return (
     <SafeAreaView style={Styles.container}>
-      <TextInput placeholder="Username" style={Styles.emailInfo} value={registration.username} onChangeText={(e) => setRegistration({ ...registration, username: e })} />
-      <TextInput placeholder="Email" style={Styles.emailInfo} value={registration.email} onChangeText={(e) => setRegistration({ ...registration, email: e })} />
-      <TextInput placeholder="Password" secureTextEntry style={Styles.emailInfo} value={registration.password} onChangeText={(e) => setRegistration({ ...registration, password: e })} />
+      <View style={Styles.iconfit} >
+        <SvgXml xml={ICON.profile} width="24" height="24" style={Styles.rightMar} />
+        <TextInput placeholder="Username" style={Styles.emailInfo} value={registration.username} onChangeText={(e) => setRegistration({ ...registration, username: e })} />
+      </View>
+      <View style={Styles.iconfit}>
+        <SvgXml xml={ICON.imageIcon} width="24" height="24" style={Styles.rightMar} />
+        <TextInput placeholder="image Uri" style={Styles.emailInfo} value={registration.imageUri} onChangeText={(e) => setRegistration({ ...registration, imageUri: e })} />
+      </View>
+      <View style={Styles.iconfit}>
+        <SvgXml xml={ICON.emailIcon} width="24" height="24" style={Styles.rightMar} />
+        <TextInput placeholder="Email" style={Styles.emailInfo} value={registration.email} onChangeText={(e) => setRegistration({ ...registration, email: e })} />
+      </View>
+      <View style={Styles.iconfit}>
+        <SvgXml xml={ICON.password} width="24" height="24" style={Styles.rightMar} />
+        <TextInput placeholder="Password" secureTextEntry style={Styles.emailInfo} value={registration.password} onChangeText={(e) => setRegistration({ ...registration, password: e })} />
+      </View>
       <TouchableOpacity onPress={handleRegister} style={Styles.registerBtn}>
         <Text style={{ textAlign: "center", color: "#fff", fontWeight: "800" }}>Register</Text>
       </TouchableOpacity>
